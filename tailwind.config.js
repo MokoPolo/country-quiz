@@ -6,6 +6,10 @@ export default {
       sans: ["Be Vietnam Pro", "sans-serif"],
     },
     extend: {
+      backgroundColor: {
+        lightPurple: "#393F6E",
+        darkPurple: "#343964",
+      },
       fontSize: {
         mediumm: "1.5rem",
         semiboldd: "1.25rem",

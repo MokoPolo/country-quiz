@@ -9,7 +9,7 @@ const QuestionNumber: React.FC<QuestionNumberProps> = ({ number, active }) => {
   return (
     <div
       className={`rounded-full w-10 h-10 m-1 p-1 flex items-center justify-center ${
-        active ? "bg-activeGradient" : "bg-[#343964]"
+        active ? "bg-activeGradient" : "bg-lightPurple"
       }`}
     >
       {number}

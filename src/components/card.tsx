@@ -7,7 +7,7 @@ const Card: React.FC = () => {
   const currentQuestion: number = 2;
 
   return (
-    <div className="card w-[800px] text-[#E2E4F3] bg-[#393F6E] rounded-xl flex items-center flex-col p-7">
+    <div className="card w-[800px] text-[#E2E4F3] bg-darkPurple rounded-xl flex items-center flex-col p-7 drop-shadow">
       <h2 className="text-[#8B8EAB] text-boldd">Country Quiz</h2>
       <div className="flex flex-row">
         {Array.from({ length: count }, (_, index) => (
