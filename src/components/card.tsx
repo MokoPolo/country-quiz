@@ -1,14 +1,21 @@
 import React from "react";
 import QuestionNumber from "./questionNumber";
 import QuestionButton from "./questionButton";
-import { useFetchAllCountries } from "../services/countryService";
+import { useFetchCountries } from "../services/countryService";
+import { buildQuestions, useQuestion } from "../services/questionService";
 
 const Card: React.FC = () => {
   const count: number = 10;
-  const currentQuestion: number = 2;
+  const { currentQuestion, incrementCurrentQuestion } = useQuestion();
 
-  const countries = useFetchAllCountries();
-  console.log(countries);
+  const countries = useFetchCountries(count);
+  const questions = buildQuestions(countries);
+
+  function handleAnswer(): void {
+    incrementCurrentQuestion();
+    console.log(currentQuestion);
+  }
+
   return (
     <div className="card w-[800px] text-[#E2E4F3] bg-darkPurple rounded-xl flex items-center flex-col p-7 drop-shadow">
       <h2 className="text-[#8B8EAB] text-boldd">Country Quiz</h2>
@@ -23,13 +30,26 @@ const Card: React.FC = () => {
         ))}
       </div>
       <p className="text-semiboldd m-10 w-[350px] text-center">
-        Which country is 'countryname' the capital?
+        Which country is '{questions[currentQuestion]?.country?.capital}' the
+        capital?
       </p>
       <div className="grid grid-cols-2">
-        <QuestionButton text="Answer 1" />
-        <QuestionButton text="Answer 2" />
-        <QuestionButton text="Answer 3" />
-        <QuestionButton text="Answer 4" />
+        <QuestionButton
+          text={questions[currentQuestion]?.answers[0]}
+          onClick={() => handleAnswer()}
+        />
+        <QuestionButton
+          text={questions[currentQuestion]?.answers[1]}
+          onClick={() => handleAnswer()}
+        />
+        <QuestionButton
+          text={questions[currentQuestion]?.answers[2]}
+          onClick={() => handleAnswer()}
+        />
+        <QuestionButton
+          text={questions[currentQuestion]?.answers[3]}
+          onClick={() => handleAnswer()}
+        />
       </div>
     </div>
   );

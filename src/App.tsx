@@ -3,7 +3,7 @@ import Card from "./components/card";
 
 function App() {
   return (
-    <div className="flex justify-center items-center w-full h-screen borderMe">
+    <div className="flex justify-center items-center w-full h-screen">
       <Card></Card>
     </div>
   );
