@@ -13,7 +13,6 @@ const Card: React.FC = () => {
 
   function handleAnswer(): void {
     incrementCurrentQuestion();
-    console.log(currentQuestion);
   }
 
   return (

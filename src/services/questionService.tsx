@@ -21,7 +21,10 @@ export const useQuestion = () => {
   const [currentQuestion, setcurrentQuestion] = useState<number>(0);
 
   const incrementCurrentQuestion = () => {
-    setcurrentQuestion((prevQuestion) => prevQuestion + 1);
+    console.log(currentQuestion);
+    setcurrentQuestion((prevQuestion) =>
+      prevQuestion < 9 ? prevQuestion + 1 : prevQuestion
+    );
   };
 
   return { currentQuestion, incrementCurrentQuestion };
