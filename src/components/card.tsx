@@ -1,11 +1,14 @@
 import React from "react";
 import QuestionNumber from "./questionNumber";
 import QuestionButton from "./questionButton";
+import { useFetchAllCountries } from "../services/countryService";
 
 const Card: React.FC = () => {
   const count: number = 10;
   const currentQuestion: number = 2;
 
+  const countries = useFetchAllCountries();
+  console.log(countries);
   return (
     <div className="card w-[800px] text-[#E2E4F3] bg-darkPurple rounded-xl flex items-center flex-col p-7 drop-shadow">
       <h2 className="text-[#8B8EAB] text-boldd">Country Quiz</h2>
