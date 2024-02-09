@@ -39,7 +39,7 @@ const Card: React.FC = () => {
           <img
             src={questions[currentQuestion]?.country?.flag}
             alt="flag"
-            className="w-5 h-5 inline align-top"
+            className="w-6 h-4 inline align-middle"
           />{" "}
           belong to?
         </p>
