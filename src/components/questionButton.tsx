@@ -5,6 +5,12 @@ interface QuestionButtonProps {
   onClick: () => void;
 }
 
+/**
+ * Renders a question button component.
+ * @param {string} props.text - The text to display on the button.
+ * @param {Function} props.onClick - The function to be called when the button is clicked.
+ * @returns {JSX.Element} The rendered question button component.
+ */
 const QuestionButton: React.FC<QuestionButtonProps> = ({ text, onClick }) => {
   return (
     <button

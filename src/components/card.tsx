@@ -4,6 +4,10 @@ import QuestionButton from "./questionButton";
 import { useFetchCountries } from "../services/countryService";
 import { buildQuestions, useQuestion } from "../services/questionService";
 
+/**
+ * Renders a card component for the country quiz.
+ * @returns JSX.Element
+ */
 const Card: React.FC = () => {
   const count: number = 10;
   const { currentQuestion, incrementCurrentQuestion } = useQuestion();

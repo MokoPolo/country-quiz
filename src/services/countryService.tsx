@@ -4,6 +4,11 @@ import CountryDTO from "../data/countryDto";
 
 const BASE_URL = "https://restcountries.com/v3.1";
 
+/**
+ * Custom hook to fetch a specified number of countries.
+ * @param count The number of countries to fetch.
+ * @returns An array of CountryDTO objects representing the fetched countries.
+ */
 export const useFetchCountries = (count: number) => {
   const [countries, setCountries] = useState<CountryDTO[]>([]);
   useEffect(() => {
@@ -30,20 +35,3 @@ export const useFetchCountries = (count: number) => {
 
   return countries;
 };
-
-// export const useFetchCountriesWithFields = () => {
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch(`${BASE_URL}/all?fields=name,flags`);
-//         const flagData: CountryDTO[] = await response.json();
-//         // console.log("Flag data: ");
-//         // console.log(flagData);
-//       } catch (error) {
-//         console.error("Error fetching countries with fields:", error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);
-// };

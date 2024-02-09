@@ -5,6 +5,12 @@ interface QuestionNumberProps {
   active: boolean;
 }
 
+/**
+ * Renders the question number component.
+ * @param {number} props.number - The question number.
+ * @param {boolean} props.active - Indicates if the question is active.
+ * @returns {JSX.Element} The rendered question number component.
+ */
 const QuestionNumber: React.FC<QuestionNumberProps> = ({ number, active }) => {
   return (
     <div
