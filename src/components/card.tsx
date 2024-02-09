@@ -10,7 +10,7 @@ const Card: React.FC = () => {
 
   const countries = useFetchCountries(count);
   const questions = buildQuestions(countries);
-
+  console.log(questions);
   function handleAnswer(): void {
     incrementCurrentQuestion();
   }
@@ -28,10 +28,22 @@ const Card: React.FC = () => {
           </div>
         ))}
       </div>
-      <p className="text-semiboldd m-10 w-[350px] text-center">
-        Which country is '{questions[currentQuestion]?.country?.capital}' the
-        capital?
-      </p>
+      {currentQuestion % 2 === 0 ? (
+        <p className="text-semiboldd m-10 w-[390px] text-center">
+          Which country is '{questions[currentQuestion]?.country?.capital}' the
+          capital?
+        </p>
+      ) : (
+        <p className="text-semiboldd m-10 w-[390px] text-center">
+          Which country does this flag{" "}
+          <img
+            src={questions[currentQuestion]?.country?.flag}
+            alt="flag"
+            className="w-5 h-5 inline align-top"
+          />{" "}
+          belong to?
+        </p>
+      )}
       <div className="grid grid-cols-2">
         <QuestionButton
           text={questions[currentQuestion]?.answers[0]}

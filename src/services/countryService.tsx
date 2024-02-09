@@ -16,7 +16,7 @@ export const useFetchCountries = (count: number) => {
           (country: any): CountryDTO => ({
             name: country.name.common,
             capital: country.capital,
-            flag: country.flags,
+            flag: country.flags.svg,
           })
         );
         setCountries(countryData);
