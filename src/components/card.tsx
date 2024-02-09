@@ -26,7 +26,7 @@ const Card: React.FC = () => {
         {Array.from({ length: count }, (_, index) => (
           <div key={index}>
             <QuestionNumber
-              active={index === currentQuestion ? true : false}
+              active={index <= currentQuestion ? true : false}
               number={index + 1}
             />
           </div>
