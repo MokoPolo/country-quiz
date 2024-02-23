@@ -15,7 +15,17 @@ const Card: React.FC = () => {
   const countries = useFetchCountries(count);
   const questions = buildQuestions(countries);
 
-  function handleAnswer(): void {
+  function handleAnswer(event: React.MouseEvent): void {
+    const selectedAnswer = (event.target as HTMLElement).textContent;
+    console.log(selectedAnswer); // <-- selected answer
+    console.log(questions[currentQuestion]?.correctAnswer); // <-- correct answer
+    //console.log(currentQuestion);
+    // feb 23
+    // for now take the current element and put if it's correct or not next to the text
+    // in future maybe give id's so I can mark the other ones as correct or incorrect
+
+    // Rest of your code...
+
     // mark which buttons are correct or incorrect
     // if wrong then put x on the button and show the correct answer
     // if right then put a checkmark on the button
@@ -68,20 +78,32 @@ const Card: React.FC = () => {
         )}
         <div className="grid grid-cols-2">
           <QuestionButton
+            id="answer0"
             text={questions[currentQuestion]?.answers[0]}
-            onClick={() => handleAnswer()}
+            onClick={(event: React.MouseEvent<Element, MouseEvent>) =>
+              handleAnswer(event)
+            }
           />
           <QuestionButton
+            id="answer1"
             text={questions[currentQuestion]?.answers[1]}
-            onClick={() => handleAnswer()}
+            onClick={(event: React.MouseEvent<Element, MouseEvent>) =>
+              handleAnswer(event)
+            }
           />
           <QuestionButton
+            id="answer2"
             text={questions[currentQuestion]?.answers[2]}
-            onClick={() => handleAnswer()}
+            onClick={(event: React.MouseEvent<Element, MouseEvent>) =>
+              handleAnswer(event)
+            }
           />
           <QuestionButton
+            id="answer3"
             text={questions[currentQuestion]?.answers[3]}
-            onClick={() => handleAnswer()}
+            onClick={(event: React.MouseEvent<Element, MouseEvent>) =>
+              handleAnswer(event)
+            }
           />
         </div>
       </div>
