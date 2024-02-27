@@ -17,12 +17,26 @@ const Card: React.FC = () => {
 
   function handleAnswer(event: React.MouseEvent): void {
     const selectedAnswer = (event.target as HTMLElement).textContent;
+    console.log(event.target);
     console.log(selectedAnswer); // <-- selected answer
     console.log(questions[currentQuestion]?.correctAnswer); // <-- correct answer
     //console.log(currentQuestion);
     // feb 23
     // for now take the current element and put if it's correct or not next to the text
     // in future maybe give id's so I can mark the other ones as correct or incorrect
+    const markAnswer = (isCorrect: boolean, buttonId: string) => {
+      const button = document.getElementById(buttonId);
+      if (button) {
+        button.innerHTML = isCorrect
+          ? button.innerHTML + " ✔️"
+          : button.innerHTML + " ❌";
+      }
+    };
+    if (selectedAnswer === questions[currentQuestion]?.correctAnswer) {
+      markAnswer(true, (event.target as HTMLElement).id);
+    } else {
+      markAnswer(false, (event.target as HTMLElement).id);
+    }
 
     // Rest of your code...
 
@@ -31,7 +45,7 @@ const Card: React.FC = () => {
     // if right then put a checkmark on the button
 
     // set a timer to move to the next question
-    incrementCurrentQuestion();
+    // incrementCurrentQuestion();
 
     // If it's the last question, show the results
     if (currentQuestion === count - 1) {
